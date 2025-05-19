@@ -3,69 +3,69 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Anger Stage - مرحلة الغضب</title>
+<title>Anger Stage</title>
 <style>
   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #ff4e42, #ffb199);
-    color: #fff;
-    margin: 0; padding: 0;
-    display: flex;
+    background: #641e16;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
+    color: #ecf0f1;
+    margin: 0; padding: 40px;
+    display: flex; justify-content: center; align-items: center; height: 100vh;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  }
+  .container {
+    background: #7b241c;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.8);
+    max-width: 650px;
     text-align: center;
+    border: 3px solid #cd6155;
   }
   h1 {
+    margin-bottom: 30px;
     font-size: 3rem;
-    margin-bottom: 0.3em;
-    text-shadow: 2px 2px 4px #660000;
+    font-weight: 700;
+    letter-spacing: 2px;
   }
-  .message-box {
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 20px 30px;
-    max-width: 600px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-  }
-  .message-en {
+  p {
     font-size: 1.3rem;
-    font-weight: 600;
-    margin-bottom: 1em;
+    margin: 20px 0;
+    line-height: 1.7;
   }
-  .message-ar {
-    font-size: 1.1rem;
+  .book {
     font-style: italic;
-    margin-bottom: 1.5em;
+    color: #f5b7b1;
+    margin-top: 20px;
   }
-  .book-recommendation {
-    font-size: 1rem;
-    font-weight: 500;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 10px;
-    border-radius: 8px;
+  button {
+    margin-top: 40px;
+    background: #cd6155;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
   }
-  footer {
-    margin-top: 30px;
-    font-size: 0.85rem;
-    opacity: 0.7;
+  button:hover {
+    background: #e74c3c;
   }
 </style>
 </head>
 <body>
-
-<h1>مرحلة الغضب / Anger Stage</h1>
-
-<div class="message-box" id="message-box">
-  <!-- الرسالة العشوائية هنا -->
-</div>
-
-<footer>Scan QR code to receive support messages</footer>
+  <div class="container">
+    <h1>مرحلة الغضب - رسالة دعم</h1>
+    <p id="message"></p>
+    <p id="book" class="book"></p>
+    <button onclick="showRandomMessage()">أظهر رسالة عشوائية</button>
+  </div>
 
 <script>
   const messages = [
-  {
+    {
     ar: "الغضب شعور طبيعي في الحزن، لا تخف من التعبير عنه.",
     en: "Anger is a natural feeling in grief; don't fear expressing it.",
     book: "كتاب: 'Anger: Wisdom for Cooling the Flames' - ثيش نات هانه"
@@ -268,24 +268,17 @@
   }
 ];
 
-  ];
 
-  function getRandomMessage() {
-    return messages[Math.floor(Math.random() * messages.length)];
+
+  function showRandomMessage() {
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    const msg = messages[randomIndex];
+    document.getElementById('message').innerText = msg.ar + "\n" + msg.en;
+    document.getElementById('book').innerText = "Recommended: " + msg.book;
   }
 
-  function displayMessage() {
-    const msg = getRandomMessage();
-    const container = document.getElementById('message-box');
-    container.innerHTML = `
-      <div class="message-en">${msg.en}</div>
-      <div class="message-ar">${msg.ar}</div>
-      <div class="book-recommendation">Recommended book: <em>${msg.book}</em></div>
-    `;
-  }
-
-  displayMessage();
+  showRandomMessage();
 </script>
-
 </body>
 </html>
+   
