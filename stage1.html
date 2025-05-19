@@ -1,326 +1,278 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>رسائل دعم مرحلة الإنكار - Denial Support Messages</title>
-  <style>
-    body {
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      direction: rtl;
-      background-color: #fff4e6;
-      color: #5d4037;
-      padding: 20px;
-      margin: 0;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 25px;
-      font-weight: 700;
-      color: #6d4c41;
-      letter-spacing: 1.2px;
-    }
-    .message-card {
-      background: #fff8f1;
-      border-radius: 10px;
-      padding: 18px 22px;
-      margin-bottom: 16px;
-      box-shadow: 0 3px 8px rgba(109, 76, 65, 0.2);
-      transition: transform 0.2s ease;
-    }
-    .message-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 12px rgba(109, 76, 65, 0.3);
-    }
-    .message-en {
-      font-weight: 600;
-      color: #4e342e;
-      margin-bottom: 6px;
-      font-size: 1.05em;
-    }
-    .message-ar {
-      font-size: 1.15em;
-      margin-bottom: 10px;
-      color: #6d4c41;
-      line-height: 1.4;
-    }
-    .book-title {
-      font-style: italic;
-      color: #8d6e63;
-      text-align: left;
-      direction: ltr;
-      font-size: 0.9em;
-      user-select: none;
-    }
-    nav {
-      text-align: center;
-      margin: 30px 0 10px 0;
-    }
-    nav a {
-      display: inline-block;
-      margin: 0 10px;
-      padding: 10px 18px;
-      background-color: #6d4c41;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 6px;
-      transition: background-color 0.3s ease;
-    }
-    nav a:hover {
-      background-color: #a1887f;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Denial Stage</title>
+<style>
+  body {
+    background: #f0f8ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #003366;
+    margin: 0; padding: 20px;
+    display: flex; justify-content: center; align-items: center; height: 100vh;
+    flex-direction: column;
+  }
+  .container {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.2);
+    max-width: 600px;
+    text-align: center;
+  }
+  h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #004080;
+  }
+  p {
+    font-size: 1.1rem;
+    margin: 15px 0;
+    line-height: 1.4;
+  }
+  .book {
+    font-style: italic;
+    color: #0073e6;
+    margin-top: 5px;
+  }
+  button {
+    margin-top: 25px;
+    background: #004080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #0059b3;
+  }
+</style>
 </head>
 <body>
-  <h1>رسائل دعم مرحلة الإنكار - Denial Support Messages</h1>
-
-  <nav>
-    <a href="anger.html">مرحلة الغضب - Anger</a>
-    <a href="bargaining.html">مرحلة المساومة - Bargaining</a>
-    <a href="depression.html">مرحلة الاكتئاب - Depression</a>
-    <a href="acceptance.html">مرحلة القبول - Acceptance</a>
-  </nav>
-
-  <div class="message-card">
-    <div class="message-en">It’s okay to feel unsure—accept your doubts gently.</div>
-    <div class="message-ar">لا بأس أن تشعر بعدم اليقين — تقبل شكوكك بلطف.</div>
-    <div class="book-title">The Power of Now by Eckhart Tolle</div>
+  <div class="container">
+    <h1>Denial Stage - رسالة دعم</h1>
+    <p id="message"></p>
+    <p id="book" class="book"></p>
+    <button onclick="showRandomMessage()">أظهر رسالة عشوائية</button>
   </div>
 
-  <div class="message-card">
-    <div class="message-en">Denial is the first step toward understanding.</div>
-    <div class="message-ar">الإنكار هو الخطوة الأولى نحو الفهم.</div>
-    <div class="book-title">On Grief and Grieving by Elisabeth Kübler-Ross</div>
-  </div>
+<script>
+  const messages = [
+  
+  {
+    ar: "قد يكون الإنكار مجرد بداية للتعافي، لا تتسرع في الحكم على مشاعرك.",
+    en: "Denial may just be the beginning of healing; don't rush to judge your feelings.",
+    book: "كتاب: 'The Power of Now' - إيكهارت تول"
+  },
+  {
+    ar: "في بعض الأحيان، نحتاج إلى الإنكار لحماية أنفسنا من الألم، ولا بأس بذلك.",
+    en: "Sometimes, we need denial to protect ourselves from pain, and that's okay.",
+    book: "كتاب: 'Man’s Search for Meaning' - فيكتور فرانكل"
+  },
+  {
+    ar: "الإنكار هو مرحلة مؤقتة، فتقبل ما يحدث هو الخطوة التالية نحو السلام.",
+    en: "Denial is a temporary stage; accepting what happens is the next step towards peace.",
+    book: "كتاب: 'When Things Fall Apart' - باميلا كيس"
+  },
+  {
+    ar: "لا تلوم نفسك على مشاعرك في هذه المرحلة، كل شيء طبيعي.",
+    en: "Don't blame yourself for your feelings at this stage; everything is natural.",
+    book: "كتاب: 'Emotional Intelligence' - دانيال جولمان"
+  },
+  {
+    ar: "تعامل مع الإنكار كفرصة للتعلم وليس كعقبة.",
+    en: "Treat denial as an opportunity to learn, not an obstacle.",
+    book: "كتاب: 'Rising Strong' - بريينيه براون"
+  },
+  {
+    ar: "تذكر أن الإنكار يحميك مؤقتًا، لكن المواجهة تبني قوتك.",
+    en: "Remember denial protects you temporarily, but facing reality builds your strength.",
+    book: "كتاب: 'Daring Greatly' - بريينيه براون"
+  },
+  {
+    ar: "من الطبيعي أن تشعر بأن الأمر غير حقيقي، فالأحداث الكبرى تصعب استيعابها.",
+    en: "It's natural to feel things aren't real; major events are hard to grasp.",
+    book: "كتاب: 'Option B' - شيريل ساندبيرج"
+  },
+  {
+    ar: "الإنكار هو جزء من عملية الحزن، خذ وقتك ولا تستعجل.",
+    en: "Denial is part of grieving; take your time and don't rush.",
+    book: "كتاب: 'On Grief and Grieving' - إليزابيث كوبلر روس"
+  },
+  {
+    ar: "استمع لمشاعرك ولا تخف منها مهما كانت معقدة.",
+    en: "Listen to your feelings and don't fear them, no matter how complex.",
+    book: "كتاب: 'The Untethered Soul' - مايكل سينغر"
+  },
+  {
+    ar: "لا تدع الإنكار يمنعك من البحث عن الدعم والمساعدة.",
+    en: "Don't let denial stop you from seeking support and help.",
+    book: "كتاب: 'Lost Connections' - يوهان هاري"
+  },
+  {
+    ar: "حتى في الإنكار، هناك بذور الأمل والتغيير.",
+    en: "Even in denial, there are seeds of hope and change.",
+    book: "كتاب: 'The Happiness Trap' - راس هاريس"
+  },
+  {
+    ar: "لا تكن قاسيًا على نفسك؛ التعافي رحلة طويلة ومتعرجة.",
+    en: "Don't be harsh on yourself; healing is a long and winding journey.",
+    book: "كتاب: 'Self-Compassion' - كريستين نيف"
+  },
+  {
+    ar: "الحقيقة قد تكون مؤلمة، لكن إنكارها يؤخر سلامك الداخلي.",
+    en: "Truth can be painful, but denying it delays your inner peace.",
+    book: "كتاب: 'Radical Acceptance' - تال سينغر"
+  },
+  {
+    ar: "امنح نفسك إذنًا للشعور بالإنكار؛ هذا جزء من طبيعة الإنسان.",
+    en: "Give yourself permission to feel denial; it's part of human nature.",
+    book: "كتاب: 'The Gifts of Imperfection' - بريينيه براون"
+  },
+  {
+    ar: "الإقرار بالمشكلة أول خطوة نحو الحل، ولكنها تأتي بوقتها.",
+    en: "Acknowledging the problem is the first step to solution, but it comes in its time.",
+    book: "كتاب: 'Mindfulness in Plain English' - هينبونج ناماه"
+  },
+  {
+    ar: "تذكر أن كل مرحلة من الحزن تمر في وقتها الخاص.",
+    en: "Remember each stage of grief passes in its own time.",
+    book: "كتاب: 'Grief Counseling and Grief Therapy' - جيرالد كلاينر"
+  },
+  {
+    ar: "لا تجبر نفسك على قبول ما لم تكن مستعدًا له بعد.",
+    en: "Don't force yourself to accept what you're not ready for yet.",
+    book: "كتاب: 'Healing After Loss' - مارثا هول كيلي"
+  },
+  {
+    ar: "الإنكار يمنحك فرصة لفهم عمق خسارتك تدريجيًا.",
+    en: "Denial gives you a chance to understand the depth of your loss gradually.",
+    book: "كتاب: 'The Year of Magical Thinking' - جون جوردون"
+  },
+  {
+    ar: "خذ نفسًا عميقًا، ولا تخجل من أن تشعر بالضعف أحيانًا.",
+    en: "Take a deep breath and don't be ashamed to feel weak sometimes.",
+    book: "كتاب: 'The Obstacle Is the Way' - رايان هوليداي"
+  },
+  {
+    ar: "المواجهة الحقيقة تأتي بعد فترة من الإنكار، وهي بداية جديدة.",
+    en: "Facing reality comes after a period of denial, and it's a new beginning.",
+    book: "كتاب: 'Start Where You Are' - بريينيه براون"
+  },
+  {
+    ar: "حتى في أصعب الأوقات، يمكن للإنكار أن يكون وسيلة لحماية نفسك.",
+    en: "Even in tough times, denial can be a way to protect yourself.",
+    book: "كتاب: 'The Four Agreements' - دون ميغيل رويز"
+  },
+  {
+    ar: "أحيانًا، يكون الإنكار الطريقة الوحيدة للمضي قدمًا في البداية.",
+    en: "Sometimes denial is the only way to move forward initially.",
+    book: "كتاب: 'Atomic Habits' - جيمس كلير"
+  },
+  {
+    ar: "تقبل أنك في مرحلة إنكار، ولا تشعر بأنك وحيد في هذا الشعور.",
+    en: "Accept that you're in denial and don't feel alone in this feeling.",
+    book: "كتاب: 'The Art of Happiness' - دالاي لاما"
+  },
+  {
+    ar: "لا تخف من مواجهة الحقيقة عندما تكون مستعدًا لها.",
+    en: "Don't fear facing the truth when you are ready for it.",
+    book: "كتاب: 'Feel the Fear and Do It Anyway' - سوزان جيفرس"
+  },
+  {
+    ar: "الإنكار ليس ضعفًا، بل جزء طبيعي من الاستجابة للصدمات.",
+    en: "Denial is not weakness, but a natural part of responding to trauma.",
+    book: "كتاب: 'Waking the Tiger' - بيتر ليفين"
+  },
+  {
+    ar: "في كل مرة تشعر فيها بالإنكار، تذكر أنك على طريق التعافي.",
+    en: "Every time you feel denial, remember you are on the path to healing.",
+    book: "كتاب: 'Healing Trauma' - بيتر ليفين"
+  },
+  {
+    ar: "خذ الوقت الذي تحتاجه، لا تسرع في تخطي مشاعرك.",
+    en: "Take the time you need; don't rush through your feelings.",
+    book: "كتاب: 'The Body Keeps the Score' - بيسيل فان دير كولك"
+  },
+  {
+    ar: "تعلم كيف تتحدث مع نفسك بلطف خلال هذه المرحلة.",
+    en: "Learn to talk to yourself kindly during this stage.",
+    book: "كتاب: 'Love Yourself Like Your Life Depends On It' - كاميليا غريب"
+  },
+  {
+    ar: "التنكر للحقيقة قد يبدو كإجراء دفاعي للحظة، لا أكثر.",
+    en: "Denial of truth may seem like a momentary defense, nothing more.",
+    book: "كتاب: 'The Dance of Anger' - هارييت ليرنر"
+  },
+  {
+    ar: "دع نفسك تشعر بكل المشاعر دون ضغط أو حكم.",
+    en: "Let yourself feel all emotions without pressure or judgment.",
+    book: "كتاب: 'Radical Acceptance' - تال سينغر"
+  },
+  {
+    ar: "الإنكار قد يبطئ الألم لكنه لا يزيله، فتوقع النهاية أفضل.",
+    en: "Denial may slow the pain but doesn't remove it, so expect the end.",
+    book: "كتاب: 'The Grief Recovery Handbook' - جون أ. جروب"
+  },
+  {
+    ar: "تذكر أن كل تجربة إنكار تعلمك شيئًا جديدًا عن نفسك.",
+    en: "Remember every denial experience teaches you something new about yourself.",
+    book: "كتاب: 'Braving the Wilderness' - بريينيه براون"
+  },
+  {
+    ar: "حاول أن تجد السلام الداخلي حتى وسط الإحساس بعدم التصديق.",
+    en: "Try to find inner peace even amid disbelief.",
+    book: "كتاب: 'Peace Is Every Step' - ثيش نات هانه"
+  },
+  {
+    ar: "الإنكار يبدأ بالذهن لكنه يؤثر أيضًا على جسدك، انتبه لصحتك.",
+    en: "Denial starts in the mind but also affects your body; take care.",
+    book: "كتاب: 'The Mindbody Prescription' - جون إي سارنو"
+  },
+  {
+    ar: "لا تخجل من طلب الدعم من الآخرين في هذه المرحلة.",
+    en: "Don't be ashamed to ask for support from others at this stage.",
+    book: "كتاب: 'Option B' - شيريل ساندبيرج"
+  },
+  {
+    ar: "حتى في الظلام، هناك بريق أمل ينتظر أن تراه.",
+    en: "Even in darkness, there is a glimmer of hope waiting to be seen.",
+    book: "كتاب: 'The Book of Joy' - دالاي لاما"
+  },
+  {
+    ar: "تقبل عدم اليقين هو جزء من الخروج من مرحلة الإنكار.",
+    en: "Accepting uncertainty is part of moving out of denial.",
+    book: "كتاب: 'Uncertainty' - جون إلينر"
+  },
+  {
+    ar: "كل يوم جديد يحمل فرصة جديدة لفهم مشاعرك أكثر.",
+    en: "Each new day holds a new chance to understand your feelings more.",
+    book: "كتاب: 'The Miracle of Mindfulness' - ثيش نات هانه"
+  },
+  {
+    ar: "الإنكار مرحلة صعبة، لكنك أقوى مما تعتقد.",
+    en: "Denial is a hard stage, but you are stronger than you think.",
+    book: "كتاب: 'Grit' - أنجيلا داكر وميشيل لي"
+  },
+  {
+    ar: "تذكر أن المشاعر الصعبة هي جزء من الحياة، وستمرّ قريبًا.",
+    en: "Remember tough feelings are part of life and will soon pass.",
+    book: "كتاب: 'Emotional Agility' - سوزان ديفيد"
+  }
+];
 
-  <div class="message-card">
-    <div class="message-en">Give yourself time; clarity will come.</div>
-    <div class="message-ar">امنح نفسك الوقت؛ ستأتي الوضوح.</div>
-    <div class="book-title">Wherever You Go, There You Are by Jon Kabat-Zinn</div>
-  </div>
+  function showRandomMessage() {
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    const msg = messages[randomIndex];
+    document.getElementById('message').innerText = msg.ar + "\n" + msg.en;
+    document.getElementById('book').innerText = "Recommended: " + msg.book;
+  }
 
-  <div class="message-card">
-    <div class="message-en">It’s okay to pause and catch your breath.</div>
-    <div class="message-ar">لا بأس بالتوقف وأخذ نفس عميق.</div>
-    <div class="book-title">The Art of Stillness by Pico Iyer</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are stronger than the shock of reality.</div>
-    <div class="message-ar">أنت أقوى من صدمة الواقع.</div>
-    <div class="book-title">Resilience by Eric Greitens</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Facing truth is a courageous act, even if delayed.</div>
-    <div class="message-ar">مواجهة الحقيقة فعل شجاع حتى لو تأخر.</div>
-    <div class="book-title">Daring Greatly by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You don’t have to have all the answers now.</div>
-    <div class="message-ar">لا تحتاج لأن تكون لديك كل الإجابات الآن.</div>
-    <div class="book-title">The Untethered Soul by Michael A. Singer</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Trust your journey even if it feels unclear.</div>
-    <div class="message-ar">ثق برحلتك حتى لو بدت غير واضحة.</div>
-    <div class="book-title">Man’s Search for Meaning by Viktor E. Frankl</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Denial shields you until you’re ready to heal.</div>
-    <div class="message-ar">الإنكار يحميك حتى تصبح مستعداً للشفاء.</div>
-    <div class="book-title">The Body Keeps the Score by Bessel van der Kolk</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">It’s okay to not be okay for a little while.</div>
-    <div class="message-ar">لا بأس أن لا تكون بخير لفترة قصيرة.</div>
-    <div class="book-title">Option B by Sheryl Sandberg and Adam Grant</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Allow your heart time to adjust to change.</div>
-    <div class="message-ar">امنح قلبك وقتاً للتكيف مع التغيير.</div>
-    <div class="book-title">Rising Strong by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Your feelings are valid, even if confusing.</div>
-    <div class="message-ar">مشاعرك صحيحة حتى لو كانت مربكة.</div>
-    <div class="book-title">Self-Compassion by Kristin Neff</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Healing begins when you stop resisting reality.</div>
-    <div class="message-ar">يبدأ الشفاء عندما تتوقف عن مقاومة الواقع.</div>
-    <div class="book-title">Radical Acceptance by Tara Brach</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Take small steps toward understanding.</div>
-    <div class="message-ar">خذ خطوات صغيرة نحو الفهم.</div>
-    <div class="book-title">The Gifts of Imperfection by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Your mind needs time to accept what’s true.</div>
-    <div class="message-ar">يحتاج عقلك وقتاً ليقبل الحقيقة.</div>
-    <div class="book-title">The Mindful Way Through Depression by Mark Williams</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">It's okay to say "not yet" to your pain.</div>
-    <div class="message-ar">لا بأس أن تقول "ليس بعد" لألمك.</div>
-    <div class="book-title">The Self-Care Solution by Julie Burton</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Your heart will guide you when you are ready.</div>
-    <div class="message-ar">سيهديك قلبك عندما تكون مستعداً.</div>
-    <div class="book-title">Hope in the Dark by Rebecca Solnit</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Denial is a protective shield, not a weakness.</div>
-    <div class="message-ar">الإنكار درع وقائي وليس ضعفاً.</div>
-    <div class="book-title">The Bright Hour by Nina Riggs</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You’re allowed to feel lost before you’re found.</div>
-    <div class="message-ar">يسمح لك أن تشعر بالضياع قبل أن تجد نفسك.</div>
-    <div class="book-title">Reasons to Stay Alive by Matt Haig</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Patience is part of your healing journey.</div>
-    <div class="message-ar">الصبر جزء من رحلة شفائك.</div>
-    <div class="book-title">The Gifts of Imperfection by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are beginning to accept what you couldn’t before.</div>
-    <div class="message-ar">أنت تبدأ في قبول ما لم تستطع قبله.</div>
-    <div class="book-title">Radical Acceptance by Tara Brach</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Allow yourself to rest, your soul needs it.</div>
-    <div class="message-ar">اسمح لنفسك بالراحة، فروحك بحاجة لذلك.</div>
-    <div class="book-title">The Art of Stillness by Pico Iyer</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Healing takes time, be gentle with yourself.</div>
-    <div class="message-ar">الشفاء يحتاج وقتاً، كن لطيفاً مع نفسك.</div>
-    <div class="book-title">Self-Compassion by Kristin Neff</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Your feelings are a compass, not a cage.</div>
-    <div class="message-ar">مشاعرك بوصلة وليست قفصاً.</div>
-    <div class="book-title">Man’s Search for Meaning by Viktor E. Frankl</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">The first step is simply to acknowledge.</div>
-    <div class="message-ar">الخطوة الأولى هي فقط الاعتراف.</div>
-    <div class="book-title">Daring Greatly by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are doing the best you can right now.</div>
-    <div class="message-ar">أنت تفعل أفضل ما لديك الآن.</div>
-    <div class="book-title">Option B by Sheryl Sandberg and Adam Grant</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Denial protects you until you’re ready to grow.</div>
-    <div class="message-ar">الإنكار يحميك حتى تصبح مستعداً للنمو.</div>
-    <div class="book-title">The Body Keeps the Score by Bessel van der Kolk</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Trust your instincts as you move forward.</div>
-    <div class="message-ar">ثق بحدسك وأنت تمضي قدماً.</div>
-    <div class="book-title">The Untethered Soul by Michael A. Singer</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are allowed to say “not now” to pain.</div>
-    <div class="message-ar">يسمح لك أن تقول "ليس الآن" للألم.</div>
-    <div class="book-title">The Self-Care Solution by Julie Burton</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Every moment of denial is a moment to heal.</div>
-    <div class="message-ar">كل لحظة من الإنكار هي لحظة للشفاء.</div>
-    <div class="book-title">Radical Acceptance by Tara Brach</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">The mind needs time to adjust to new truths.</div>
-    <div class="message-ar">يحتاج العقل إلى وقت للتكيف مع الحقائق الجديدة.</div>
-    <div class="book-title">The Mindful Way Through Depression by Mark Williams</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">It’s okay to step back before moving forward.</div>
-    <div class="message-ar">لا بأس أن تتراجع قليلاً قبل التقدم.</div>
-    <div class="book-title">The Gifts of Imperfection by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Denial is your mind’s way to protect your heart.</div>
-    <div class="message-ar">الإنكار هو طريقة عقلك لحماية قلبك.</div>
-    <div class="book-title">Daring Greatly by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Your journey through denial is uniquely yours.</div>
-    <div class="message-ar">رحلتك خلال الإنكار فريدة من نوعها.</div>
-    <div class="book-title">Man’s Search for Meaning by Viktor E. Frankl</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Healing begins when you are ready to face truth.</div>
-    <div class="message-ar">يبدأ الشفاء عندما تكون مستعداً لمواجهة الحقيقة.</div>
-    <div class="book-title">Option B by Sheryl Sandberg and Adam Grant</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Be patient with yourself; acceptance takes time.</div>
-    <div class="message-ar">كن صبوراً مع نفسك؛ القبول يحتاج وقتاً.</div>
-    <div class="book-title">The Bright Hour by Nina Riggs</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are not alone in your feelings of denial.</div>
-    <div class="message-ar">أنت لست وحدك في مشاعر الإنكار.</div>
-    <div class="book-title">Reasons to Stay Alive by Matt Haig</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Each step toward truth is a step toward peace.</div>
-    <div class="message-ar">كل خطوة نحو الحقيقة هي خطوة نحو السلام.</div>
-    <div class="book-title">Radical Acceptance by Tara Brach</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Your heart will open when the time is right.</div>
-    <div class="message-ar">سيفتح قلبك عندما يحين الوقت المناسب.</div>
-    <div class="book-title">Hope in the Dark by Rebecca Solnit</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Allow your feelings to flow; they will guide you.</div>
-    <div class="message-ar">اسمح لمشاعرك أن تتدفق؛ ستوجهك.</div>
-    <div class="book-title">The Art of Stillness by Pico Iyer</div>
-  </div>
-
+  // عند تحميل الصفحة تعرض رسالة عشوائية
+  showRandomMessage();
+</script>
 </body>
 </html>
