@@ -1,315 +1,281 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>مرحلة الاكتئاب - دعم وعزاء</title>
+<title>Depression Stage</title>
 <style>
   body {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: #f0f4f8;
-    margin: 0; padding: 0;
-    direction: rtl;
-    color: #333;
-  }
-  header {
-    background-color: #2c3e50;
+    background: #2c3e50;
+    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
     color: #ecf0f1;
-    padding: 15px 20px;
-    text-align: center;
-  }
-  h1 {
-    margin: 0;
-  }
-  nav {
-    margin: 15px 20px;
-    text-align: center;
-  }
-  nav button {
-    background-color: #2980b9;
-    border: none;
-    color: white;
-    padding: 10px 16px;
-    margin: 0 5px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  nav button:hover {
-    background-color: #3498db;
+    margin: 0; padding: 40px;
+    display: flex; justify-content: center; align-items: center; height: 100vh;
+    flex-direction: column;
   }
   .container {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: 0 15px;
+    background: #34495e;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.8);
+    max-width: 650px;
+    text-align: center;
+    border: 3px solid #7f8c8d;
   }
-  .message-card {
-    background: #dce6f1;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    margin: 12px 0;
-    padding: 18px 22px;
-    transition: box-shadow 0.3s ease;
+  h1 {
+    margin-bottom: 30px;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
   }
-  .message-card:hover {
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  }
-  .message-en {
-    font-weight: 600;
-    color: #2c3e50;
-    font-size: 1.1em;
-    margin-bottom: 6px;
-  }
-  .message-ar {
-    font-style: italic;
-    color: #34495e;
-    margin-bottom: 8px;
+  p {
+    font-size: 1.3rem;
+    margin: 20px 0;
+    line-height: 1.7;
   }
   .book {
-    font-weight: bold;
-    color: #2980b9;
-    font-size: 0.95em;
+    font-style: italic;
+    color: #bdc3c7;
+    margin-top: 20px;
   }
-  footer {
-    text-align: center;
-    margin: 40px 0 20px 0;
-    color: #888;
-    font-size: 14px;
+  button {
+    margin-top: 40px;
+    background: #7f8c8d;
+    color: #2c3e50;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #95a5a6;
   }
 </style>
 </head>
 <body>
-
-<header>
-  <h1>مرحلة الاكتئاب - Depression Stage</h1>
-</header>
-
-<nav>
-  <button onclick="location.href='denial.html'">الإنكار / Denial</button>
-  <button style="background-color: #1abc9c; cursor: default;">الاكتئاب / Depression</button>
-  <button onclick="location.href='bargaining.html'">التفاوض / Bargaining</button>
-  <button onclick="location.href='anger.html'">الغضب / Anger</button>
-  <button onclick="location.href='acceptance.html'">القبول / Acceptance</button>
-</nav>
-
-<div class="container">
-
-  <div class="message-card">
-    <div class="message-en">It’s okay to feel sadness deeply; it’s part of healing.</div>
-    <div class="message-ar">لا بأس أن تشعر بالحزن بعمق؛ فهو جزء من الشفاء.</div>
-    <div class="book">Lost Connections by Johann Hari</div>
+  <div class="container">
+    <h1>مرحلة الاكتئاب - رسالة دعم</h1>
+    <p id="message"></p>
+    <p id="book" class="book"></p>
+    <button onclick="showRandomMessage()">أظهر رسالة عشوائية</button>
   </div>
 
-  <div class="message-card">
-    <div class="message-en">Sometimes, resting is the bravest thing you can do.</div>
-    <div class="message-ar">أحيانًا، الراحة هي أجرأ شيء يمكنك القيام به.</div>
-    <div class="book">The Power of Rest by Matthew Edlund</div>
-  </div>
+<script>
+  const messages = [
+  {
+    en: "It's okay to feel sadness; it's part of healing.",
+    ar: "لا بأس أن تشعر بالحزن؛ فهو جزء من الشفاء.",
+    book: "The Language of Letting Go by Melody Beattie"
+  },
+  {
+    en: "Your tears are a sign of your courage to heal.",
+    ar: "دموعك علامة على شجاعتك للشفاء.",
+    book: "Healing After Loss by Martha Whitmore Hickman"
+  },
+  {
+    en: "Grief can feel heavy, but you are not alone.",
+    ar: "الحزن قد يكون ثقيلاً، لكنك لست وحدك.",
+    book: "Option B by Sheryl Sandberg & Adam Grant"
+  },
+  {
+    en: "Let yourself rest when you need it.",
+    ar: "اسمح لنفسك بالراحة عندما تحتاجها.",
+    book: "Rest: Why You Get More Done When You Work Less by Alex Soojung-Kim Pang"
+  },
+  {
+    en: "Pain is temporary; healing is ongoing.",
+    ar: "الألم مؤقت؛ والشفاء مستمر.",
+    book: "When Things Fall Apart by Pema Chödrön"
+  },
+  {
+    en: "Talking about your grief lightens the burden.",
+    ar: "التحدث عن حزنك يخفف العبء.",
+    book: "The Art of Comforting by Val Walker"
+  },
+  {
+    en: "It’s okay to not have all the answers now.",
+    ar: "لا بأس بعدم وجود كل الإجابات الآن.",
+    book: "The Wisdom of Insecurity by Alan Watts"
+  },
+  {
+    en: "Healing happens one small step at a time.",
+    ar: "الشفاء يحدث خطوة صغيرة تلو الأخرى.",
+    book: "The Gifts of Imperfection by Brené Brown"
+  },
+  {
+    en: "Grief is love persevering through loss.",
+    ar: "الحزن هو الحب الذي يستمر رغم الفقد.",
+    book: "The Invisible String by Patrice Karst"
+  },
+  {
+    en: "You deserve kindness and compassion from yourself.",
+    ar: "تستحق اللطف والرحمة من نفسك.",
+    book: "Self-Compassion by Kristin Neff"
+  },
+  {
+    en: "Allow yourself to feel without judgment.",
+    ar: "اسمح لنفسك بالشعور دون حكم.",
+    book: "Radical Acceptance by Tara Brach"
+  },
+  {
+    en: "The darkest moments often precede growth.",
+    ar: "اللحظات المظلمة تسبق النمو غالبًا.",
+    book: "Man’s Search for Meaning by Viktor E. Frankl"
+  },
+  {
+    en: "You are stronger than your sadness.",
+    ar: "أنت أقوى من حزنك.",
+    book: "Rising Strong by Brené Brown"
+  },
+  {
+    en: "Grief may change you, but it won't break you.",
+    ar: "الحزن قد يغيرك، لكنه لن يكسرَك.",
+    book: "The Year of Magical Thinking by Joan Didion"
+  },
+  {
+    en: "Find small joys to nourish your spirit.",
+    ar: "ابحث عن أفراح صغيرة تغذي روحك.",
+    book: "The Little Book of Hygge by Meik Wiking"
+  },
+  {
+    en: "Healing isn’t linear; it has ups and downs.",
+    ar: "الشفاء ليس خطيًا؛ له صعود وهبوط.",
+    book: "Lost Connections by Johann Hari"
+  },
+  {
+    en: "It's okay to ask for help when you need it.",
+    ar: "لا بأس أن تطلب المساعدة عندما تحتاجها.",
+    book: "The Anxiety and Phobia Workbook by Edmund J. Bourne"
+  },
+  {
+    en: "Breathe deeply; each breath brings calm.",
+    ar: "تنفس بعمق؛ كل نفس يجلب الهدوء.",
+    book: "The Miracle of Mindfulness by Thich Nhat Hanh"
+  },
+  {
+    en: "Your feelings are valid and important.",
+    ar: "مشاعرك صحيحة ومهمة.",
+    book: "The Feeling Good Handbook by David D. Burns"
+  },
+  {
+    en: "Hope can grow even in the darkest times.",
+    ar: "الأمل يمكن أن ينمو حتى في أحلك الأوقات.",
+    book: "Hope in the Dark by Rebecca Solnit"
+  },
+  {
+    en: "Sometimes silence is the best way to heal.",
+    ar: "أحيانًا الصمت هو أفضل طريقة للشفاء.",
+    book: "Silence: The Power of Quiet in a World Full of Noise by Thich Nhat Hanh"
+  },
+  {
+    en: "Every day is a new chance to move forward.",
+    ar: "كل يوم هو فرصة جديدة للمضي قدمًا.",
+    book: "The Power of Now by Eckhart Tolle"
+  },
+  {
+    en: "You are not your grief; you are beyond it.",
+    ar: "أنت لست حزنك؛ أنت أبعد من ذلك.",
+    book: "You Are Not Your Brain by Jeffrey M. Schwartz"
+  },
+  {
+    en: "Let the memories bring warmth, not pain.",
+    ar: "دع الذكريات تجلب الدفء، لا الألم.",
+    book: "Healing After Loss: Daily Meditations for Working through Grief by Martha Whitmore Hickman"
+  },
+  {
+    en: "Your story of grief is uniquely yours.",
+    ar: "قصة حزنك هي قصتك الفريدة.",
+    book: "The Grief Recovery Handbook by John W. James and Russell Friedman"
+  },
+  {
+    en: "It’s okay to rest and recharge your soul.",
+    ar: "لا بأس أن تستريح وتعيد شحن روحك.",
+    book: "The Art of Rest by Claudia Hammond"
+  },
+  {
+    en: "Grief teaches us how deeply we can love.",
+    ar: "الحزن يعلمنا مدى عمق محبتنا.",
+    book: "Grief Counseling and Grief Therapy by J. William Worden"
+  },
+  {
+    en: "Small steps lead to big healing.",
+    ar: "الخطوات الصغيرة تؤدي إلى شفاء كبير.",
+    book: "Tiny Beautiful Things by Cheryl Strayed"
+  },
+  {
+    en: "You are allowed to feel broken and to heal.",
+    ar: "يسمح لك أن تشعر بالكسر وأن تشفى.",
+    book: "Broken Open by Elizabeth Lesser"
+  },
+  {
+    en: "Give yourself permission to move at your pace.",
+    ar: "امنح نفسك الإذن للتحرك حسب وتيرتك.",
+    book: "The Slow Down Diet by Marc David"
+  },
+  {
+    en: "Love remains even when someone is gone.",
+    ar: "الحب يبقى حتى عندما يرحل شخص ما.",
+    book: "Tears of Sorrow, Seeds of Hope by Rosemary Wells"
+  },
+  {
+    en: "Healing starts with acceptance of your feelings.",
+    ar: "يبدأ الشفاء بقبول مشاعرك.",
+    book: "The Acceptance and Commitment Therapy by Steven C. Hayes"
+  },
+  {
+    en: "It’s okay to lean on others sometimes.",
+    ar: "لا بأس أن تعتمد على الآخرين أحيانًا.",
+    book: "Daring Greatly by Brené Brown"
+  },
+  {
+    en: "Your heart will find peace in its own time.",
+    ar: "قلبك سيجد السلام في وقته الخاص.",
+    book: "Peace Is Every Step by Thich Nhat Hanh"
+  },
+  {
+    en: "Grief may feel endless, but so does hope.",
+    ar: "الحزن قد يبدو بلا نهاية، وكذلك الأمل.",
+    book: "Hope for the Flowers by Trina Paulus"
+  },
+  {
+    en: "Trust yourself to heal and to grow.",
+    ar: "ثق بنفسك لتشفى وتنمو.",
+    book: "The Untethered Soul by Michael A. Singer"
+  },
+  {
+    en: "You don’t have to do this alone.",
+    ar: "لست مضطرًا لفعل هذا وحدك.",
+    book: "Being Mortal by Atul Gawande"
+  },
+  {
+    en: "Light will return to your life again.",
+    ar: "سيعود النور إلى حياتك مرة أخرى.",
+    book: "Light Is the New Black by Rebecca Campbell"
+  },
+  {
+    en: "Grief opens the door to deeper understanding.",
+    ar: "الحزن يفتح الباب لفهم أعمق.",
+    book: "On Grief and Grieving by Elisabeth Kübler-Ross"
+  },
+  {
+    en: "Your feelings are part of your healing journey.",
+    ar: "مشاعرك جزء من رحلة شفائك.",
+    book: "Healing Your Grieving Heart by Alan D. Wolfelt"
+  },
+    
+  ];
 
-  <div class="message-card">
-    <div class="message-en">Your feelings are valid, even if they feel overwhelming.</div>
-    <div class="message-ar">مشاعرك صحيحة، حتى لو كانت ساحقة.</div>
-    <div class="book">The Noonday Demon by Andrew Solomon</div>
-  </div>
+  function showRandomMessage() {
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    const msg = messages[randomIndex];
+    document.getElementById('message').innerText = msg.ar + "\n" + msg.en;
+    document.getElementById('book').innerText = "Recommended: " + msg.book;
+  }
 
-  <div class="message-card">
-    <div class="message-en">Seek light in small moments, even when it feels dark.</div>
-    <div class="message-ar">ابحث عن النور في اللحظات الصغيرة، حتى عندما يبدو الظلام.</div>
-    <div class="book">The Bright Hour by Nina Riggs</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">It’s okay to ask for help; you don’t have to do this alone.</div>
-    <div class="message-ar">لا بأس أن تطلب المساعدة؛ لست مضطراً لأن تفعل ذلك وحدك.</div>
-    <div class="book">Reasons to Stay Alive by Matt Haig</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Healing takes time; be patient with your journey.</div>
-    <div class="message-ar">الشفاء يحتاج وقتاً؛ كن صبوراً مع رحلتك.</div>
-    <div class="book">Feeling Good by David D. Burns</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are not your depression; you are much more.</div>
-    <div class="message-ar">أنت لست اكتئابك؛ أنت أكثر من ذلك بكثير.</div>
-    <div class="book">Darkness Visible by William Styron</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Sometimes the hardest battles are the ones inside.</div>
-    <div class="message-ar">أحيانًا أصعب المعارك هي تلك التي في داخلك.</div>
-    <div class="book">The Mindful Way Through Depression by Mark Williams</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Small steps forward are still progress.</div>
-    <div class="message-ar">الخطوات الصغيرة نحو الأمام هي تقدّم بالفعل.</div>
-    <div class="book">Atomic Habits by James Clear</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Your story isn’t over; new chapters are waiting.</div>
-    <div class="message-ar">قصتك لم تنتهِ؛ فصول جديدة في الانتظار.</div>
-    <div class="book">Option B by Sheryl Sandberg and Adam Grant</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Let yourself feel without judgment.</div>
-    <div class="message-ar">دع نفسك تشعر بدون حكم.</div>
-    <div class="book">Radical Acceptance by Tara Brach</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Even in darkness, you can find strength to shine.</div>
-    <div class="message-ar">حتى في الظلام، يمكنك أن تجد القوة لتتألق.</div>
-    <div class="book">Rising Strong by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are worthy of love and kindness, especially from yourself.</div>
-    <div class="message-ar">أنت تستحق الحب واللطف، خاصة من نفسك.</div>
-    <div class="book">Self-Compassion by Kristin Neff</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">It’s okay to take time to grieve and feel loss.</div>
-    <div class="message-ar">لا بأس أن تأخذ وقتاً للحزن والشعور بالخسارة.</div>
-    <div class="book">On Grief and Grieving by Elisabeth Kübler-Ross</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Healing often happens one breath at a time.</div>
-    <div class="message-ar">الشفاء يحدث غالبًا نفسًا بنَفَس.</div>
-    <div class="book">The Miracle of Mindfulness by Thich Nhat Hanh</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Don’t rush the process; every feeling has its place.</div>
-    <div class="message-ar">لا تستعجل العملية؛ لكل شعور مكانه.</div>
-    <div class="book">The Gifts of Imperfection by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are not alone in this struggle.</div>
-    <div class="message-ar">أنت لست وحدك في هذه المعركة.</div>
-    <div class="book">Reasons to Stay Alive by Matt Haig</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Sometimes, asking for help is the strongest thing you can do.</div>
-    <div class="message-ar">أحيانًا، طلب المساعدة هو أقوى شيء يمكنك فعله.</div>
-    <div class="book">Help Yourself by Dr. Carl Holden</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Your pain is real and important.</div>
-    <div class="message-ar">ألمك حقيقي ومهم.</div>
-    <div class="book">The Body Keeps the Score by Bessel van der Kolk</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Small acts of self-care can make a big difference.</div>
-    <div class="message-ar">أفعال العناية الذاتية الصغيرة تصنع فرقاً كبيراً.</div>
-    <div class="book">Self-Care for the Real World by Nadia Narain</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You don’t have to have all the answers right now.</div>
-    <div class="message-ar">ليس عليك أن تمتلك كل الإجابات الآن.</div>
-    <div class="book">The Untethered Soul by Michael A. Singer</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Hope can be found even in the darkest times.</div>
-    <div class="message-ar">يمكن العثور على الأمل حتى في أحلك الأوقات.</div>
-    <div class="book">Man’s Search for Meaning by Viktor E. Frankl</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You have survived every hard day so far.</div>
-    <div class="message-ar">لقد نجوت من كل يوم صعب حتى الآن.</div>
-    <div class="book">Option B by Sheryl Sandberg and Adam Grant</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">It’s okay to cry and express your feelings.</div>
-    <div class="message-ar">لا بأس أن تبكي وتعبر عن مشاعرك.</div>
-    <div class="book">Emotional Agility by Susan David</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are not broken; you are healing.</div>
-    <div class="message-ar">أنت لست مكسورًا؛ أنت تشفى.</div>
-    <div class="book">The Gifts of Imperfection by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Sometimes the best thing is simply to be gentle with yourself.</div>
-    <div class="message-ar">أحيانًا أفضل شيء هو أن تكون لطيفًا مع نفسك فقط.</div>
-    <div class="book">Self-Compassion by Kristin Neff</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Healing is not linear; ups and downs are normal.</div>
-    <div class="message-ar">الشفاء ليس خطيًا؛ الصعود والهبوط طبيعيان.</div>
-    <div class="book">The Body Keeps the Score by Bessel van der Kolk</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Focus on what you can control, one day at a time.</div>
-    <div class="message-ar">ركّز على ما يمكنك التحكم به، يومًا بيوم.</div>
-    <div class="book">Atomic Habits by James Clear</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are stronger than you think.</div>
-    <div class="message-ar">أنت أقوى مما تعتقد.</div>
-    <div class="book">Rising Strong by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">The night is darkest just before dawn.</div>
-    <div class="message-ar">الليل هو الأظلم قبل الفجر مباشرة.</div>
-    <div class="book">Man’s Search for Meaning by Viktor E. Frankl</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">You are deserving of peace and joy.</div>
-    <div class="message-ar">أنت تستحق السلام والفرح.</div>
-    <div class="book">The Happiness Trap by Russ Harris</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Progress, not perfection, is what matters.</div>
-    <div class="message-ar">التقدم، وليس الكمال، هو المهم.</div>
-    <div class="book">The Gifts of Imperfection by Brené Brown</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">It’s okay to take things one step at a time.</div>
-    <div class="message-ar">لا بأس أن تأخذ الأمور خطوة بخطوة.</div>
-    <div class="book">Atomic Habits by James Clear</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Your feelings do not define you.</div>
-    <div class="message-ar">مشاعرك لا تعرّفك.</div>
-    <div class="book">Emotional Agility by Susan David</div>
-  </div>
-
-  <div class="message-card">
-    <div class="message-en">Every day is a new chance to heal.</div>
-    <div class="message-ar">كل يوم فرصة جديدة للشفاء.</div>
-    <div class="book">Option B by Sheryl Sandberg and Adam Grant</div>
-  </div>
-
-</div>
-
-<footer>
-  © 2025 Your Support Project
-</footer>
-
+  showRandomMessage();
+</script>
 </body>
 </html>
