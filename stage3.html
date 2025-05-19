@@ -1,337 +1,279 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>مرحلة المساومة - Bargaining</title>
+<title>Bargaining Stage</title>
 <style>
   body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f0f4f8, #c7d2fe);
-    color: #333;
-    margin: 0; padding: 0;
+    background: #fff4e5;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+    color: #8b4513;
+    margin: 0; padding: 40px;
+    display: flex; justify-content: center; align-items: center; height: 100vh;
+    flex-direction: column;
   }
-  header {
-    background-color: #6a89cc;
-    color: white;
-    text-align: center;
-    padding: 1.5rem 1rem;
-    font-size: 2rem;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-  }
-  nav {
-    background-color: #4a69bd;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    padding: 0.7rem 0;
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
-  }
-  nav a:hover, nav a.active {
-    background-color: #2d3a78;
-  }
-  main {
-    max-width: 900px;
-    margin: 2rem auto 4rem auto;
-    background-color: white;
-    padding: 1.5rem 2rem;
+  .container {
+    background: #fff8f0;
+    padding: 30px 45px;
     border-radius: 15px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.25);
+    max-width: 600px;
+    text-align: center;
+    border: 2px solid #deb887;
   }
-  article {
-    margin-bottom: 1.6rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #ddd;
-  }
-  article:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
-  .message-en {
-    font-size: 1.05rem;
+  h1 {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
     font-weight: 600;
-    color: #222;
-    margin-bottom: 0.3rem;
   }
-  .message-ar {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 0.3rem;
+  p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    line-height: 1.5;
   }
   .book {
     font-style: italic;
-    color: #888;
-    font-size: 0.9rem;
+    color: #a0522d;
+    margin-top: 12px;
   }
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: #6a89cc;
+  button {
+    margin-top: 30px;
+    background: #a0522d;
     color: white;
-    font-size: 0.9rem;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
-  @media (max-width: 600px) {
-    main {
-      margin: 1rem;
-      padding: 1rem;
-    }
-    nav {
-      flex-wrap: wrap;
-    }
-    nav a {
-      font-size: 1rem;
-      padding: 0.3rem 0.7rem;
-    }
+  button:hover {
+    background: #7b3e1c;
   }
 </style>
 </head>
 <body>
+  <div class="container">
+    <h1>مرحلة المساومة - رسالة دعم</h1>
+    <p id="message"></p>
+    <p id="book" class="book"></p>
+    <button onclick="showRandomMessage()">أظهر رسالة عشوائية</button>
+  </div>
 
-<header>مرحلة المساومة - Bargaining</header>
+<script>
+    { const messages = [
+  {
+    en: "Sometimes, we try to bargain to regain control.",
+    ar: "أحيانًا نحاول المساومة لاستعادة السيطرة.",
+    book: "Man's Search for Meaning by Viktor E. Frankl"
+  },
+  {
+    en: "It's okay to ask 'what if' — it shows you're processing.",
+    ar: "لا بأس أن تسأل 'ماذا لو' — هذا يعني أنك تعالج الأمر.",
+    book: "When Things Fall Apart by Pema Chödrön"
+  },
+  {
+    en: "Negotiating with pain is part of healing.",
+    ar: "المساومة مع الألم جزء من الشفاء.",
+    book: "The Gifts of Imperfection by Brené Brown"
+  },
+  {
+    en: "Every 'what if' is a step toward understanding.",
+    ar: "كل 'ماذا لو' هو خطوة نحو الفهم.",
+    book: "Rising Strong by Brené Brown"
+  },
+  {
+    en: "Bargaining shows your heart is still fighting.",
+    ar: "المساومة تدل أن قلبك لا يزال يقاتل.",
+    book: "The Art of Happiness by Dalai Lama"
+  },
+  {
+    en: "It's okay to want a different ending.",
+    ar: "لا بأس بأن ترغب بنهاية مختلفة.",
+    book: "Option B by Sheryl Sandberg"
+  },
+  {
+    en: "Your bargaining is a sign of hope.",
+    ar: "المساومة علامة على الأمل.",
+    book: "Hope in the Dark by Rebecca Solnit"
+  },
+  {
+    en: "Sometimes, 'if only' helps us find peace.",
+    ar: "أحيانًا 'لو فقط' تساعدنا في العثور على السلام.",
+    book: "The Power of Now by Eckhart Tolle"
+  },
+  {
+    en: "Bargaining means you are still engaged with your feelings.",
+    ar: "المساومة تعني أنك لا تزال متفاعل مع مشاعرك.",
+    book: "Emotional Agility by Susan David"
+  },
+  {
+    en: "Accepting help during bargaining is strength.",
+    ar: "قبول المساعدة أثناء المساومة هو قوة.",
+    book: "Daring Greatly by Brené Brown"
+  },
+  {
+    en: "Bargaining lets you explore your fears and hopes.",
+    ar: "المساومة تتيح لك استكشاف مخاوفك وآمالك.",
+    book: "Feel the Fear and Do It Anyway by Susan Jeffers"
+  },
+  {
+    en: "Through bargaining, you learn to accept uncertainty.",
+    ar: "من خلال المساومة، تتعلم قبول عدم اليقين.",
+    book: "Radical Acceptance by Tara Brach"
+  },
+  {
+    en: "Your heart tries to rewrite the story to heal.",
+    ar: "قلبك يحاول إعادة كتابة القصة للشفاء.",
+    book: "Writing to Heal by James W. Pennebaker"
+  },
+  {
+    en: "Bargaining is a natural part of grief’s journey.",
+    ar: "المساومة جزء طبيعي من رحلة الحزن.",
+    book: "On Grief and Grieving by Elisabeth Kübler-Ross"
+  },
+  {
+    en: "Talking about your feelings eases the pain.",
+    ar: "التحدث عن مشاعرك يخفف الألم.",
+    book: "The Healing Power of Emotion by Diana Fosha"
+  },
+  {
+    en: "It’s okay to want more time or different outcomes.",
+    ar: "لا بأس أن تريد مزيدًا من الوقت أو نتائج مختلفة.",
+    book: "Time to Heal by Robin Casarjian"
+  },
+  {
+    en: "Bargaining can be a way to find new meaning.",
+    ar: "المساومة يمكن أن تكون وسيلة لإيجاد معنى جديد.",
+    book: "Man’s Search for Meaning by Viktor E. Frankl"
+  },
+  {
+    en: "Each ‘if only’ opens a door to healing.",
+    ar: "كل 'لو فقط' يفتح بابًا للشفاء.",
+    book: "The Untethered Soul by Michael A. Singer"
+  },
+  {
+    en: "Hope lives in the space of bargaining.",
+    ar: "الأمل يعيش في فضاء المساومة.",
+    book: "Hope in the Dark by Rebecca Solnit"
+  },
+  {
+    en: "Bargaining helps bridge pain and acceptance.",
+    ar: "المساومة تساعد في بناء جسر بين الألم والقبول.",
+    book: "The Art of Happiness by Dalai Lama"
+  },
+  {
+    en: "Bargaining lets you explore your fears and hopes.",
+    ar: "المساومة تتيح لك استكشاف مخاوفك وآمالك.",
+    book: "Feel the Fear and Do It Anyway by Susan Jeffers"
+  },
+  {
+    en: "Through bargaining, you learn to accept uncertainty.",
+    ar: "من خلال المساومة، تتعلم قبول عدم اليقين.",
+    book: "Radical Acceptance by Tara Brach"
+  },
+  {
+    en: "Your heart tries to rewrite the story to heal.",
+    ar: "قلبك يحاول إعادة كتابة القصة للشفاء.",
+    book: "Writing to Heal by James W. Pennebaker"
+  },
+  {
+    en: "Bargaining is a natural part of grief’s journey.",
+    ar: "المساومة جزء طبيعي من رحلة الحزن.",
+    book: "On Grief and Grieving by Elisabeth Kübler-Ross"
+  },
+  {
+    en: "Talking about your feelings eases the pain.",
+    ar: "التحدث عن مشاعرك يخفف الألم.",
+    book: "The Healing Power of Emotion by Diana Fosha"
+  },
+  {
+    en: "It’s okay to want more time or different outcomes.",
+    ar: "لا بأس أن تريد مزيدًا من الوقت أو نتائج مختلفة.",
+    book: "Time to Heal by Robin Casarjian"
+  },
+  {
+    en: "Bargaining can be a way to find new meaning.",
+    ar: "المساومة يمكن أن تكون وسيلة لإيجاد معنى جديد.",
+    book: "Man’s Search for Meaning by Viktor E. Frankl"
+  },
+  {
+    en: "Each ‘if only’ opens a door to healing.",
+    ar: "كل 'لو فقط' يفتح بابًا للشفاء.",
+    book: "The Untethered Soul by Michael A. Singer"
+  },
+  {
+    en: "Hope lives in the space of bargaining.",
+    ar: "الأمل يعيش في فضاء المساومة.",
+    book: "Hope in the Dark by Rebecca Solnit"
+  },
+  {
+    en: "Bargaining helps bridge pain and acceptance.",
+    ar: "المساومة تساعد في بناء جسر بين الألم والقبول.",
+    book: "The Art of Happiness by Dalai Lama"
+  },
+  {
+    en: "Negotiating your grief is part of healing.",
+    ar: "التفاوض مع حزنك جزء من الشفاء.",
+    book: "Grief Counseling and Grief Therapy by J. William Worden"
+  },
+  {
+    en: "Bargaining creates space to adjust to change.",
+    ar: "المساومة تخلق مساحة للتأقلم مع التغيير.",
+    book: "Transitions: Making Sense of Life’s Changes by William Bridges"
+  },
+  {
+    en: "It’s normal to question ‘what if’ during grief.",
+    ar: "من الطبيعي أن تتساءل 'ماذا لو' أثناء الحزن.",
+    book: "The Grief Recovery Handbook by John W. James"
+  },
+  {
+    en: "Bargaining lets your mind process loss gradually.",
+    ar: "المساومة تتيح لعقلك معالجة الفقدان تدريجياً.",
+    book: "The Year of Magical Thinking by Joan Didion"
+  },
+  {
+    en: "Try to be gentle with yourself during bargaining.",
+    ar: "حاول أن تكون لطيفًا مع نفسك أثناء المساومة.",
+    book: "Self-Compassion by Kristin Neff"
+  },
+  {
+    en: "Bargaining is a step toward eventual peace.",
+    ar: "المساومة خطوة نحو السلام في النهاية.",
+    book: "Peace Is Every Step by Thich Nhat Hanh"
+  },
+  {
+    en: "Your hopes show your strength, even in grief.",
+    ar: "آمالك تظهر قوتك حتى في الحزن.",
+    book: "Option B by Sheryl Sandberg"
+  },
+  {
+    en: "Bargaining helps you find new perspectives.",
+    ar: "المساومة تساعدك على إيجاد وجهات نظر جديدة.",
+    book: "Change Your Thoughts - Change Your Life by Wayne Dyer"
+  },
+  {
+    en: "Healing begins with accepting your feelings.",
+    ar: "الشفاء يبدأ بقبول مشاعرك.",
+    book: "The Power of Now by Eckhart Tolle"
+  },
+  {
+    en: "Every ‘if only’ is a step toward hope.",
+    ar: "كل 'لو فقط' هي خطوة نحو الأمل.",
+    book: "The Book of Joy by Dalai Lama & Desmond Tutu"
+  },     
+ 
+  ];
 
-<nav>
-  <a href="denial.html">الإنكار - Denial</a>
-  <a href="anger.html">الغضب - Anger</a>
-  <a href="bargaining.html" class="active">المساومة - Bargaining</a>
-  <a href="depression.html">الاكتئاب - Depression</a>
-  <a href="acceptance.html">القبول - Acceptance</a>
-</nav>
+  function showRandomMessage() {
+    const randomIndex = Math.floor(Math.random() * messages.length);
+    const msg = messages[randomIndex];
+    document.getElementById('message').innerText = msg.ar + "\n" + msg.en;
+    document.getElementById('book').innerText = "Recommended: " + msg.book;
+  }
 
-<main>
-  <!-- رسائل الدعم -->
-  <article>
-    <div class="message-en">It’s natural to wish for 'what if' and 'if only'.</div>
-    <div class="message-ar">من الطبيعي أن تتمنى 'ماذا لو' و'لو فقط'.</div>
-    <div class="book">When Things Fall Apart by Pema Chödrön</div>
-  </article>
-  <article>
-    <div class="message-en">Bargaining is a way to cope with loss and pain.</div>
-    <div class="message-ar">المساومة طريقة للتعامل مع الخسارة والألم.</div>
-    <div class="book">The Art of Happiness by Dalai Lama</div>
-  </article>
-  <article>
-    <div class="message-en">Allow yourself to explore different outcomes without guilt.</div>
-    <div class="message-ar">اسمح لنفسك باستكشاف احتمالات مختلفة بدون شعور بالذنب.</div>
-    <div class="book">Radical Acceptance by Tara Brach</div>
-  </article>
-  <article>
-    <div class="message-en">It’s okay to seek control in uncertain moments.</div>
-    <div class="message-ar">لا بأس أن تبحث عن السيطرة في لحظات عدم اليقين.</div>
-    <div class="book">The Power of Now by Eckhart Tolle</div>
-  </article>
-  <article>
-    <div class="message-en">Bargaining shows your deep desire to heal and move forward.</div>
-    <div class="message-ar">المساومة تظهر رغبتك العميقة في الشفاء والمضي قدماً.</div>
-    <div class="book">Rising Strong by Brené Brown</div>
-  </article>
-  <article>
-    <div class="message-en">Sometimes the hardest step is accepting what can’t be changed.</div>
-    <div class="message-ar">أحيانًا أصعب خطوة هي قبول ما لا يمكن تغييره.</div>
-    <div class="book">Man’s Search for Meaning by Viktor E. Frankl</div>
-  </article>
-  <article>
-    <div class="message-en">Your feelings are part of your unique healing process.</div>
-    <div class="message-ar">مشاعرك جزء من عملية شفائك الفريدة.</div>
-    <div class="book">Healing After Loss by Martha Whitmore Hickman</div>
-  </article>
-  <article>
-    <div class="message-en">Try to be gentle with yourself during moments of doubt.</div>
-    <div class="message-ar">حاول أن تكون لطيفاً مع نفسك في لحظات الشك.</div>
-    <div class="book">Self-Compassion by Kristin Neff</div>
-  </article>
-  <article>
-    <div class="message-en">Bargaining can help you find meaning in loss.</div>
-    <div class="message-ar">المساومة يمكن أن تساعدك في إيجاد معنى للخسارة.</div>
-    <div class="book">The Gifts of Imperfection by Brené Brown</div>
-  </article>
-  <article>
-    <div class="message-en">Remember that healing is a journey, not a destination.</div>
-    <div class="message-ar">تذكر أن الشفاء رحلة وليس وجهة.</div>
-    <div class="book">The Untethered Soul by Michael A. Singer</div>
-  </article>
-  <article>
-    <div class="message-en">Your hope is a powerful force in moving through grief.</div>
-    <div class="message-ar">أملك قوة قوية في تجاوز الحزن.</div>
-    <div class="book">Option B by Sheryl Sandberg and Adam Grant</div>
-  </article>
-  <article>
-    <div class="message-en">Give yourself permission to feel every emotion fully.</div>
-    <div class="message-ar">امنح نفسك الإذن للشعور بكل مشاعرك بشكل كامل.</div>
-    <div class="book">The Language of Emotions by Karla McLaren</div>
-  </article>
-  <article>
-    <div class="message-en">Bargaining is a way your heart tries to make sense.</div>
-    <div class="message-ar">المساومة طريقة يحاول بها قلبك الفهم.</div>
-    <div class="book">The Four Agreements by Don Miguel Ruiz</div>
-  </article>
-  <article>
-    <div class="message-en">You’re allowed to have moments of confusion and hope.</div>
-    <div class="message-ar">يسمح لك بأن تمر بلحظات من الحيرة والأمل.</div>
-    <div class="book">Emotional Agility by Susan David</div>
-  </article>
-  <article>
-    <div class="message-en">Sometimes ‘what if’ questions can lead to acceptance.</div>
-    <div class="message-ar">أحياناً أسئلة 'ماذا لو' تؤدي إلى القبول.</div>
-    <div class="book">When Things Fall Apart by Pema Chödrön</div>
-  </article>
-  <article>
-    <div class="message-en">Your journey through bargaining is part of your strength.</div>
-    <div class="message-ar">رحلتك عبر المساومة جزء من قوتك.</div>
-    <div class="book">Rising Strong by Brené Brown</div>
-  </article>
-  <article>
-    <div class="message-en">Focus on what you can change, not what you can’t.</div>
-    <div class="message-ar">ركّز على ما يمكنك تغييره، لا على ما لا يمكنك.</div>
-    <div class="book">The Power of Now by Eckhart Tolle</div>
-  </article>
-  <article>
-    <div class="message-en">Healing comes when you let go of what no longer serves you.</div>
-    <div class="message-ar">يأتي الشفاء عندما تتخلى عما لم يعد يخدمك.</div>
-    <div class="book">Letting Go by David R. Hawkins</div>
-  </article>
-  <article>
-    <div class="message-en">Sometimes bargaining reflects your desire to protect yourself.</div>
-    <div class="message-ar">أحيانًا تعكس المساومة رغبتك في حماية نفسك.</div>
-    <div class="book">The Emotional Life of Your Brain by Richard J. Davidson</div>
-  </article>
-  <article>
-    <div class="message-en">Find comfort in knowing you are not alone in this process.</div>
-    <div class="message-ar">ابحث عن الراحة في معرفتك أنك لست وحدك في هذه العملية.</div>
-    <div class="book">Option B by Sheryl Sandberg and Adam Grant</div>
-  </article>
-  <article>
-    <div class="message-en">Your resilience shines brightest during challenges.</div>
-    <div class="message-ar">تتألق مرونتك أكثر خلال التحديات.</div>
-    <div class="book">Resilience by Eric Greitens</div>
-  </article>
-  <article>
-    <div class="message-en">It’s okay to ask for help while navigating difficult feelings.</div>
-    <div class="message-ar">لا بأس أن تطلب المساعدة أثناء التعامل مع المشاعر الصعبة.</div>
-    <div class="book">The Anger Workbook by Les Carter</div>
-  </article>
-  <article>
-    <div class="message-en">Bargaining can open doors to new perspectives.</div>
-    <div class="message-ar">المساومة يمكن أن تفتح أبواباً لوجهات نظر جديدة.</div>
-    <div class="book">The Four Agreements by Don Miguel Ruiz</div>
-  </article>
-  <article>
-    <div class="message-en">Sometimes peace comes after accepting uncertainty.</div>
-    <div class="message-ar">أحيانًا يأتي السلام بعد قبول عدم اليقين.</div>
-    <div class="book">Peace Is Every Step by Thich Nhat Hanh</div>
-  </article>
-  <article>
-    <div class="message-en">Give yourself time; healing does not happen overnight.</div>
-    <div class="message-ar">امنح نفسك وقتاً؛ الشفاء لا يحدث بين ليلة وضحاها.</div>
-    <div class="book">Healing After Loss by Martha Whitmore Hickman</div>
-  </article>
-  <article>
-    <div class="message-en">Let hope be your guide, even in hard times.</div>
-    <div class="message-ar">دع الأمل يكون دليلك حتى في الأوقات الصعبة.</div>
-    <div class="book">Option B by Sheryl Sandberg and Adam Grant</div>
-  </article>
-  <article>
-    <div class="message-en">Sometimes the smallest step forward is the biggest victory.</div>
-    <div class="message-ar">أحياناً أصغر خطوة إلى الأمام هي أكبر انتصار.</div>
-    <div class="book">Atomic Habits by James Clear</div>
-  </article>
-  <article>
-    <div class="message-en">Your bargaining is a sign of your courage and strength.</div>
-    <div class="message-ar">مساومتك علامة على شجاعتك وقوتك.</div>
-    <div class="book">Daring Greatly by Brené Brown</div>
-  </article>
-  <article>
-    <div class="message-en">Find meaning in every emotion, even the painful ones.</div>
-    <div class="message-ar">ابحث عن معنى في كل شعور، حتى المؤلم منها.</div>
-    <div class="book">The Language of Emotions by Karla McLaren</div>
-  </article>
-  <article>
-    <div class="message-en">It’s okay to dream of a better future while healing.</div>
-    <div class="message-ar">لا بأس أن تحلم بمستقبل أفضل أثناء الشفاء.</div>
-    <div class="book">The Power of Now by Eckhart Tolle</div>
-  </article>
-  <article>
-    <div class="message-en">Your heart’s negotiation is part of learning to let go.</div>
-    <div class="message-ar">تفاوض قلبك جزء من تعلم التخلي.</div>
-    <div class="book">Letting Go by David R. Hawkins</div>
-  </article>
-  <article>
-    <div class="message-en">You’re doing your best; be proud of your progress.</div>
-    <div class="message-ar">أنت تبذل قصارى جهدك؛ كن فخوراً بتقدمك.</div>
-    <div class="book">The Gifts of Imperfection by Brené Brown</div>
-  </article>
-  <article>
-    <div class="message-en">Sometimes bargaining is a way to hold on before letting go.</div>
-    <div class="message-ar">أحيانًا المساومة هي طريقة للتمسك قبل التخلي.</div>
-    <div class="book">When Things Fall Apart by Pema Chödrön</div>
-  </article>
-  <article>
-    <div class="message-en">Healing happens one small step at a time.</div>
-    <div class="message-ar">يحدث الشفاء خطوة صغيرة في كل مرة.</div>
-    <div class="book">Atomic Habits by James Clear</div>
-  </article>
-  <article>
-    <div class="message-en">Embrace the uncertainty as part of your growth.</div>
-    <div class="message-ar">احتضن عدم اليقين كجزء من نموك.</div>
-    <div class="book">Emotional Agility by Susan David</div>
-  </article>
-  <article>
-    <div class="message-en">Your feelings are valid and important.</div>
-    <div class="message-ar">مشاعرك صحيحة ومهمة.</div>
-    <div class="book">Self-Compassion by Kristin Neff</div>
-  </article>
-  <article>
-    <div class="message-en">You’re stronger than you realize right now.</div>
-    <div class="message-ar">أنت أقوى مما تدرك الآن.</div>
-    <div class="book">Resilience by Eric Greitens</div>
-  </article>
-  <article>
-    <div class="message-en">Let your hope light the way forward.</div>
-    <div class="message-ar">دع أملك ينير الطريق للأمام.</div>
-    <div class="book">Option B by Sheryl Sandberg and Adam Grant</div>
-  </article>
-  <article>
-    <div class="message-en">You deserve kindness from yourself and others.</div>
-    <div class="message-ar">أنت تستحق اللطف من نفسك والآخرين.</div>
-    <div class="book">Self-Compassion by Kristin Neff</div>
-  </article>
-  <article>
-    <div class="message-en">Bargaining is a step toward understanding your pain.</div>
-    <div class="message-ar">المساومة خطوة نحو فهم ألمك.</div>
-    <div class="book">The Art of Happiness by Dalai Lama</div>
-  </article>
-  <article>
-    <div class="message-en">You are not alone in your feelings and struggles.</div>
-    <div class="message-ar">أنت لست وحدك في مشاعرك وصراعاتك.</div>
-    <div class="book">Option B by Sheryl Sandberg and Adam Grant</div>
-  </article>
-  <article>
-    <div class="message-en">Healing grows from patience and self-love.</div>
-    <div class="message-ar">ينمو الشفاء من الصبر وحب الذات.</div>
-    <div class="book">Radical Acceptance by Tara Brach</div>
-  </article>
-  <article>
-    <div class="message-en">The process is slow but every step matters.</div>
-    <div class="message-ar">العملية بطيئة لكن كل خطوة مهمة.</div>
-    <div class="book">The Untethered Soul by Michael A. Singer</div>
-  </article>
-  <article>
-    <div class="message-en">Trust your heart’s timing for healing.</div>
-    <div class="message-ar">ثق بتوقيت قلبك للشفاء.</div>
-    <div class="book">When Things Fall Apart by Pema Chödrön</div>
-  </article>
-</main>
-
-<footer>© 2025 Your Supportive Grief Project</footer>
-
+  showRandomMessage();
+</script>
 </body>
 </html>
