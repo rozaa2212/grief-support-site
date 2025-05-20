@@ -1,69 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bargaining Stage</title>
-<style>
-  body {
-    background: #4a235a;
-    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
-    color: #fdfefe;
-    margin: 0; padding: 40px;
-    display: flex; justify-content: center; align-items: center; height: 100vh;
-    flex-direction: column;
-  }
-  .container {
-    background: #6c3483;
-    padding: 40px 50px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.8);
-    max-width: 650px;
-    text-align: center;
-    border: 3px solid #d7bde2;
-  }
-  h1 {
-    margin-bottom: 30px;
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-  }
-  p {
-    font-size: 1.3rem;
-    margin: 20px 0;
-    line-height: 1.7;
-  }
-  .book {
-    font-style: italic;
-    color: #f5eef8;
-    margin-top: 20px;
-  }
-  button {
-    margin-top: 40px;
-    background: #a569bd;
-    color: #fff;
-    border: none;
-    padding: 15px 40px;
-    font-size: 1.3rem;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background: #d2b4de;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bargaining Stage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #ffffff;
+      font-family: 'Cairo', sans-serif;
+      color: #6c3483;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+    }
+    .container {
+      background: #f9f2fc;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      max-width: 650px;
+      text-align: center;
+      border: 1px solid #e8d5f2;
+    }
+    h1 {
+      margin-bottom: 25px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #6c3483;
+    }
+    p {
+      font-size: 1.1rem;
+      margin: 15px 0;
+      line-height: 1.7;
+    }
+    .book {
+      font-style: italic;
+      color: #7d7093;
+      margin-top: 15px;
+    }
+    button {
+      margin-top: 30px;
+      background: #6c3483;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: #5b2c6f;
+    }
+    .character {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 110px;
+      height: auto;
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>مرحلة المساومة - رسالة دعم</h1>
+    <h1> مرحلة المساومة : رسالة دعم</h1>
     <p id="message"></p>
     <p id="book" class="book"></p>
-    <button onclick="showRandomMessage()">أظهر رسالة عشوائية</button>
+    <button onclick="showRandomMessage()">أظهر رسالة أخرى </button>
   </div>
 
-<script>
+  <img src="bargaining-character.png" class="character" alt="Bargaining Character" />
+
+  <script>
+  
   const messages = [
   {
     en: "Sometimes, we try to bargain to regain control.",
