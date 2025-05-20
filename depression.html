@@ -1,67 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Depression Stage</title>
-<style>
-  body {
-    background: #2c3e50;
-    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
-    color: #ecf0f1;
-    margin: 0; padding: 40px;
-    display: flex; justify-content: center; align-items: center; height: 100vh;
-    flex-direction: column;
-  }
-  .container {
-    background: #34495e;
-    padding: 40px 50px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(44, 62, 80, 0.8);
-    max-width: 650px;
-    text-align: center;
-    border: 3px solid #7f8c8d;
-  }
-  h1 {
-    margin-bottom: 30px;
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-  }
-  p {
-    font-size: 1.3rem;
-    margin: 20px 0;
-    line-height: 1.7;
-  }
-  .book {
-    font-style: italic;
-    color: #bdc3c7;
-    margin-top: 20px;
-  }
-  button {
-    margin-top: 40px;
-    background: #7f8c8d;
-    color: #2c3e50;
-    border: none;
-    padding: 15px 40px;
-    font-size: 1.3rem;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background: #95a5a6;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Depression Stage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #ffffff;
+      font-family: 'Cairo', sans-serif;
+      color: #34495e;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+    }
+    .container {
+      background: #f4f6f7;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      max-width: 650px;
+      text-align: center;
+      border: 1px solid #d5d8dc;
+    }
+    h1 {
+      margin-bottom: 25px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #34495e;
+    }
+    p {
+      font-size: 1.1rem;
+      margin: 15px 0;
+      line-height: 1.7;
+    }
+    .book {
+      font-style: italic;
+      color: #707b7c;
+      margin-top: 15px;
+    }
+    button {
+      margin-top: 30px;
+      background: #34495e;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: #2c3e50;
+    }
+    .character {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 110px;
+      height: auto;
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>مرحلة الاكتئاب - رسالة دعم</h1>
+    <h1>...رسالتك</h1>
     <p id="message"></p>
     <p id="book" class="book"></p>
-    <button onclick="showRandomMessage()">أظهر رسالة عشوائية</button>
+    <button onclick="showRandomMessage()">أظهر رسالة أخرى</button>
   </div>
+
+  <img src="depression-character.png" class="character" alt="Depression Character" />
 
 <script>
   const messages = [
