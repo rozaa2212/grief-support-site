@@ -28,6 +28,19 @@
       text-align: center;
       border: 1px solid #e8d5f2;
     }
+    .container {
+  position: relative; /* ضروري عشان الصورة تكون داخل المربع */
+}
+
+.character-inside {
+  position: absolute;
+  top: 40px;       /* تحكم في المسافة من فوق */
+  right: 40px;     /* تحكم في المسافة من اليمين */
+  width: 150px;    /* حجم الصورة */
+  height: auto;
+  opacity: 1;
+  z-index: 2;      /* عشان تكون فوق النص */
+}
     h1 {
       margin-bottom: 25px;
       font-size: 2rem;
@@ -77,7 +90,7 @@
     <button onclick="showRandomMessage()">أظهر رسالة أخرى </button>
   </div>
 
-  <img src="IMG_7039.png" class="character" alt="Character" />
+  <img src="IMG_7039.png" class="character-inside" alt="Character" />
 
   <script>
   
