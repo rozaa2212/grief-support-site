@@ -1,67 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Acceptance Stage</title>
-<style>
-  body {
-    background: #e8f5e9;
-    font-family: 'Georgia', serif;
-    color: #2e7d32;
-    margin: 0; padding: 40px;
-    display: flex; justify-content: center; align-items: center; height: 100vh;
-    flex-direction: column;
-  }
-  .container {
-    background: white;
-    padding: 35px 50px;
-    border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(46, 125, 50, 0.3);
-    max-width: 650px;
-    text-align: center;
-    border: 3px solid #a5d6a7;
-  }
-  h1 {
-    margin-bottom: 25px;
-    font-size: 2.8rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-  }
-  p {
-    font-size: 1.2rem;
-    margin: 18px 0;
-    line-height: 1.6;
-  }
-  .book {
-    font-style: italic;
-    color: #388e3c;
-    margin-top: 15px;
-  }
-  button {
-    margin-top: 30px;
-    background: #2e7d32;
-    color: white;
-    border: none;
-    padding: 14px 30px;
-    font-size: 1.2rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.25s ease;
-  }
-  button:hover {
-    background: #1b5e20;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مرحلة القبول</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #ffffff;
+      font-family: 'Cairo', sans-serif;
+      color: #d4af37; /* أصفر ذهبي */
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    .container {
+      background: #fff9e6; /* أصفر فاتح جدا */
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+      max-width: 650px;
+      text-align: center;
+      border: 1px solid #d4af37;
+    }
+    h1 {
+      margin-bottom: 30px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #d4af37;
+    }
+    p {
+      font-size: 1rem;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+    .book {
+      font-style: italic;
+      color: #b3981d;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 40px;
+      background: #d4af37;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: #b3981d;
+    }
+    .character {
+      margin-top: 20px;
+      width: 120px;
+      height: auto;
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>مرحلة التقبل - رسالة دعم</h1>
+    <h1>... رسالتك  </h1>
     <p id="message"></p>
     <p id="book" class="book"></p>
-    <button onclick="showRandomMessage()">أظهر رسالة عشوائية</button>
+    <button onclick="showRandomMessage()">أظهر رسالة أخرى </button>
+    <img src="IMG_7038.png" alt="Acceptance Character" class="character" />
   </div>
-
 <script>
   const messages = [
   {
