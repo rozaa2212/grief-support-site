@@ -62,6 +62,19 @@
     button:hover {
       background: #e74c3c;
     }
+    .container {
+  position: relative; /* ضروري عشان الصورة تكون داخل المربع */
+}
+
+.character-inside {
+  position: absolute;
+  top: 40px;       /* تحكم في المسافة من فوق */
+  right: 40px;     /* تحكم في المسافة من اليمين */
+  width: 150px;    /* حجم الصورة */
+  height: auto;
+  opacity: 1;
+  z-index: 2;      /* عشان تكون فوق النص */
+}
     .character {
       position: fixed;
       bottom: 10px;
