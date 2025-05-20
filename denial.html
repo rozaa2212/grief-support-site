@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Denial Stage</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
   <style>
     body {
       background: #ffffff;
@@ -17,7 +17,6 @@
       align-items: center;
       height: 100vh;
       flex-direction: column;
-      position: relative;
     }
     .container {
       background: #f6fff6;
@@ -27,6 +26,7 @@
       max-width: 650px;
       text-align: center;
       border: 1px solid #cceccc;
+      position: relative; /* عشان الصورة داخل المربع */
     }
     h1 {
       margin-bottom: 25px;
@@ -59,13 +59,14 @@
     button:hover {
       background: #0e4023;
     }
-    .character {
+    .character-inside {
       position: absolute;
-      bottom: 10px;
-      right: 10px;
-      width: 110px;
+      top: 40px;
+      right: 40px;
+      width: 150px;
       height: auto;
-      opacity: 0.9;
+      opacity: 1;
+      z-index: 2;
     }
   </style>
 </head>
@@ -75,10 +76,10 @@
     <p id="message"></p>
     <p id="book" class="book"></p>
     <button onclick="showRandomMessage()">أظهر رسالة أخرى</button>
-  </div>
 
-  <!-- صورة الشخصية -->
-  <img src="IMG_7040.png" class="character" alt="Denial Character" />
+    <!-- صورة الشخصية داخل المربع -->
+    <img src="IMG_7040.png" class="character-inside" alt="Character" />
+  </div>
 
   <script>
     const messages = [
