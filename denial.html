@@ -1,66 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Denial Stage</title>
-<style>
-  body {
-    background: #f0f8ff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #003366;
-    margin: 0; padding: 20px;
-    display: flex; justify-content: center; align-items: center; height: 100vh;
-    flex-direction: column;
-  }
-  .container {
-    background: white;
-    padding: 25px 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 51, 102, 0.2);
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #004080;
-  }
-  p {
-    font-size: 1.1rem;
-    margin: 15px 0;
-    line-height: 1.4;
-  }
-  .book {
-    font-style: italic;
-    color: #0073e6;
-    margin-top: 5px;
-  }
-  button {
-    margin-top: 25px;
-    background: #004080;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  button:hover {
-    background: #0059b3;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Denial Stage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #ffffff;
+      font-family: 'Cairo', sans-serif;
+      color: #145a32; /* أخضر غامق */
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+    }
+    .container {
+      background: #f6fff6;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      max-width: 650px;
+      text-align: center;
+      border: 1px solid #cceccc;
+    }
+    h1 {
+      margin-bottom: 25px;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #145a32;
+    }
+    p {
+      font-size: 1.1rem;
+      margin: 15px 0;
+      line-height: 1.7;
+    }
+    .book {
+      font-style: italic;
+      color: #4d6d5a;
+      margin-top: 15px;
+    }
+    button {
+      margin-top: 30px;
+      background: #145a32;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background: #0e4023;
+    }
+    .character {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 110px;
+      height: auto;
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>Denial Stage - رسالة دعم</h1>
+    <h1>مرحلة الإنكار - رسالة دعم</h1>
     <p id="message"></p>
     <p id="book" class="book"></p>
     <button onclick="showRandomMessage()">أظهر رسالة عشوائية</button>
   </div>
 
-<script>
-  const messages = [
+  <!-- صورة الشخصية -->
+  <img src="IMG_7040.png" class="character" alt="Denial Character" />
+
+  <script>
+    const messages = [
+  
   
   {
     ar: "قد يكون الإنكار مجرد بداية للتعافي، لا تتسرع في الحكم على مشاعرك.",
