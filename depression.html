@@ -19,44 +19,47 @@
       flex-direction: column;
       position: relative;
     }
+
     .container {
+      position: relative;
       background: #f4f6f7;
-      padding: 40px 50px;
+      padding: 40px 100px 40px 50px;
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
       max-width: 650px;
       text-align: center;
       border: 1px solid #d5d8dc;
     }
-    .container {
-  position: relative; /* ضروري عشان الصورة تكون داخل المربع */
-}
 
-.character-inside {
-  position: absolute;
-  top: 40px;       /* تحكم في المسافة من فوق */
-  right: 40px;     /* تحكم في المسافة من اليمين */
-  width: 150px;    /* حجم الصورة */
-  height: auto;
-  opacity: 1;
-  z-index: 2;      /* عشان تكون فوق النص */
-}
+    .character-inside {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 160px;
+      height: auto;
+      opacity: 1;
+      z-index: 2;
+    }
+
     h1 {
       margin-bottom: 25px;
       font-size: 2rem;
       font-weight: 700;
       color: #34495e;
     }
+
     p {
       font-size: 1.1rem;
       margin: 15px 0;
       line-height: 1.7;
     }
+
     .book {
       font-style: italic;
       color: #707b7c;
       margin-top: 15px;
     }
+
     button {
       margin-top: 30px;
       background: #34495e;
@@ -69,30 +72,22 @@
       font-weight: 600;
       transition: background-color 0.3s ease;
     }
+
     button:hover {
       background: #2c3e50;
-    }
-    .character {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      width: 110px;
-      height: auto;
-      opacity: 0.9;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <img src="IMG_7037.png" class="character-inside" alt="Depression Character" />
     <h1>...رسالتك</h1>
     <p id="message"></p>
     <p id="book" class="book"></p>
     <button onclick="showRandomMessage()">أظهر رسالة أخرى</button>
   </div>
 
-  <img src="IMG_7037.png" class="character-inside" alt="Depression Character" />
-
-<script>
+  <script>
   const messages = [
   {
     en: "It's okay to feel sadness; it's part of healing.",
