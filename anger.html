@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,19 +18,15 @@
       min-height: 100vh;
       position: relative;
     }
-    .character {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  width: 120px;
-  opacity: 0.95;
-  pointer-events: none;
-}
     .container {
-      text-align: center;
+      position: relative; /* ضروري عشان الصورة داخل المربع */
+      background-color: #fff0f0;
+      border: 1px solid #c0392b;
+      box-shadow: 0 4px 10px rgba(192, 57, 43, 0.2);
+      padding:40px 100px 40px 50px;
+      border-radius: 20px;
       max-width: 650px;
-      padding: 20px 30px;
-      border-radius: 16px;
+      text-align: center;
     }
     h1 {
       margin-bottom: 25px;
@@ -62,39 +58,29 @@
     button:hover {
       background: #e74c3c;
     }
-    .container {
-  position: relative; /* ضروري عشان الصورة تكون داخل المربع */
-}
-
-.character-inside {
-  position: absolute;
-  top: 40px;       /* تحكم في المسافة من فوق */
-  right: 40px;     /* تحكم في المسافة من اليمين */
-  width: 150px;    /* حجم الصورة */
-  height: auto;
-  opacity: 1;
-  z-index: 2;      /* عشان تكون فوق النص */
-}
-    .character {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      width: 100px;
-      opacity: 0.9;
+    .character-inside {
+      position: absolute;
+      top: 20px;       /* تحكم في المسافة من فوق */
+      right: 20px;     /* تحكم في المسافة من اليمين */
+      width: 160px;    /* حجم الصورة */
+      height: auto;
+      opacity: 1;
+      z-index: 2;      /* عشان تكون فوق النص */
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1> ...رسالتك </h1>
+    <h1>...رسالتك</h1>
     <p id="message"></p>
     <p id="book" class="book"></p>
     <button onclick="showRandomMessage()">أظهر رسالة أخرى</button>
+
+    <img src="IMG_7036.png" alt="Character" class="character-inside" />
   </div>
 
-  <img src="IMG_7036.png" alt="Character" class="character-inside" />
-
   <script>
+ 
   const messages = [
     {
     ar: "الغضب شعور طبيعي في الحزن، لا تخف من التعبير عنه.",
